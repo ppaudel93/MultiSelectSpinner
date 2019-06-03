@@ -6,6 +6,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.androidbuts.multispinnerfilter.KeyPairBoolData;
+import com.androidbuts.multispinnerfilter.MultiSpinner;
+import com.androidbuts.multispinnerfilter.MultiSpinnerListener;
 import com.androidbuts.multispinnerfilter.MultiSpinnerSearch;
 import com.androidbuts.multispinnerfilter.SingleSpinner;
 import com.androidbuts.multispinnerfilter.SingleSpinnerSearch;
@@ -13,6 +15,7 @@ import com.androidbuts.multispinnerfilter.SpinnerListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -66,20 +69,26 @@ public class MainActivity extends AppCompatActivity {
             h.setSelected(false);
             listArray3.add(h);
         }
+
+        LinkedHashMap<String,Boolean> multispinnerhashmap = new LinkedHashMap();
+        multispinnerhashmap.put("option1",false);
+        multispinnerhashmap.put("option2",false);
         /**
          * Simple MultiSelection Spinner (Without Search/Filter Functionality)
          *
          *  Using MultiSpinner class
          */
-        /*MultiSpinner simpleSpinner = (MultiSpinner) findViewById(R.id.simpleMultiSpinner);
+        MultiSpinner simpleSpinner = (MultiSpinner) findViewById(R.id.simpleMultiSpinner);
 
-        simpleSpinner.setItems(listArray0, -1, new MultiSpinnerListener() {
+        simpleSpinner.setDefaultText("Select Option");
+
+        simpleSpinner.setItems(multispinnerhashmap, new MultiSpinnerListener() {
 
             @Override
             public void onItemsSelected(boolean[] selected) {
             }
 
-        });*/
+        });
 
         /**
          * Search MultiSelection Spinner (With Search/Filter Functionality)

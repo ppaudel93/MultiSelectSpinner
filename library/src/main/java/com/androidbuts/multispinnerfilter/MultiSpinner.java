@@ -49,6 +49,11 @@ public class MultiSpinner extends AppCompatSpinner implements OnMultiChoiceClick
         selected[which] = isChecked;
     }
 
+    public void setDefaultText(String text){
+        this.defaultText = text;
+    }
+    public void setSpinnerTitle(String text){this.spinnerTitle=text;}
+
     @Override
     public void onCancel(DialogInterface dialog) {
         // refresh text on spinner
@@ -77,7 +82,7 @@ public class MultiSpinner extends AppCompatSpinner implements OnMultiChoiceClick
 
     @Override
     public boolean performClick() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext(), R.style.myDialog);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle(spinnerTitle);
         builder.setMultiChoiceItems(
                 items.toArray(new CharSequence[items.size()]), selected, this);
